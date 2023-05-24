@@ -8,6 +8,7 @@ export default function Home() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setResult("")
     setLoading(true);
     try {
       const response = await fetch("/api/generate", {
@@ -31,7 +32,7 @@ export default function Home() {
       <form action="">
         <div className="flex flex-col gap-5 justify-center items-center w-2xl max-w-3xl">
           <h1 className="text-white font-bold text-4xl">
-            Generate a programme joke
+            What do you know about .... ?
           </h1>
           <input
             type="text"
@@ -48,6 +49,9 @@ export default function Home() {
           </button>
           {result && (
             <p className="mt-20 text-3xl font-bold text-white">{result}</p>
+          )}
+          {loading && (
+            <p className="mt-20 text-3xl font-bold text-white">Thinking ....</p>
           )}
         </div>
       </form>

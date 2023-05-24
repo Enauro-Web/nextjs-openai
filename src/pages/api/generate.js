@@ -1,7 +1,8 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: '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'
+  // apiKey: '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'
+  apiKey: process.env.OPENAI_API_KEY
 });
 
 if (!configuration.apiKey) throw new Error("OPENAI_API_KEY is not defined");
@@ -9,14 +10,14 @@ if (!configuration.apiKey) throw new Error("OPENAI_API_KEY is not defined");
 const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
-//   console.log(req.body);
+  console.log(req.body);
 
   if(!req.body || req.body.length === 0) res.status(400).error(new Error("Prompt is required!"))
 
   try {
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `Dame un chiste relacionado con ${req.body}`,
+      prompt: `Que sabes de ${req.body}`,
       temperature: 1,
       max_tokens: 256,
     });

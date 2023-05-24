@@ -23,6 +23,7 @@ export default function Home() {
       // console.log(data);
       setResult(data);
     } catch (error) {
+      console.log(error.message);
       alert(error.message);
     }
     setLoading(false);

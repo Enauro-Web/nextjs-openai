@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: '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'
+  apiKey: process.env.OPENAI_API_KEY
 });
 
 if (!configuration.apiKey) throw new Error("OPENAI_API_KEY is not defined");

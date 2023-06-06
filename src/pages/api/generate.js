@@ -4,6 +4,8 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY
 });
 
+// const password = 'abcxsdft';
+
 if (!configuration.apiKey) throw new Error("OPENAI_API_KEY is not defined");
 
 const openai = new OpenAIApi(configuration);
@@ -16,7 +18,7 @@ export default async function handler(req, res) {
   try {
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `${req.body}`,
+      prompt: `Tell me something funny about ${req.body}`,
       temperature: 1,
       max_tokens: 256,
     });

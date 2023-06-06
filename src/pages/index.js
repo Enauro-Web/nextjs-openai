@@ -33,7 +33,7 @@ export default function Home() {
       <form action="">
         <div className="flex flex-col gap-5 justify-center items-center w-2xl max-w-3xl">
           <h1 className="text-white font-bold text-4xl">
-            What do you know about .... ?
+          Tell me something funny about ...
           </h1>
           <input
             type="text"
